@@ -1,0 +1,73 @@
+/* 标签样式 start */
+.tag-wordcloud-container {
+    position: relative;
+    left: calc((100% - 100vw)/2)
+}
+
+.tag-wordcloud-container .wordcloud {
+    width: 100vw;
+    height: 500px;
+    text-align: center;
+}
+
+.tags-content {
+    margin: 50px 0
+}
+
+.tags-content .tag-title {
+    margin-bottom: 10px;
+    color: #34495e;
+    color: var(--card-container-title-color);
+    font-size: 1.75rem;
+    font-weight: 400
+}
+
+.tags-content .tag-chips {
+    margin: 1rem auto .5rem;
+    max-width: 850px;
+    text-align: center
+}
+
+.tags-content .tag-chips .tag-length {
+    color: #9b8b2a;
+    margin-top: 0;
+    margin-left: 5px;
+    margin-right: -2px;
+    font-size: .9rem
+}
+
+@media (max-width: 768px) {
+    .tags-content {
+        margin:20px 0
+    }
+}
+
+.tag-header .page-header .pattern-title h1 {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 400;
+    color: #666;
+    color: var(--color)
+}
+
+.tag-header .page-header .pattern-title h1:before {
+    content: ""
+}
+
+.tag-header .page-header .pattern-title h1:after {
+    content: "";
+    padding-right: 15px;
+    border-right: 1px dashed #ddd;
+    font-size: 30px;
+    vertical-align: middle
+}
+
+@media (max-width: 768px) {
+    .tag-header .page-header .pattern-title h1:after {
+        border-right:none
+    }
+}
+[data-theme="dark"] .tags-content .tag-title span {
+    color: var(--heo-fontcolor);
+}
+/* 标签样式 end */

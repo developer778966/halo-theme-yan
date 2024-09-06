@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{modules/layouts/layout :: layout(path = 'archives',content = ~{::content}, htmlType = 'archive',title = ${'文章归档' + ' | ' + site.title}, head = ~{::head})}">
+<th:block th:fragment="head">
+    <th:block th:replace="~{modules/common/open-graph :: open-graph(_title = '文章归档',
+                _permalink = '/archives',
+                _cover = ${theme.config.other.opengraph.image},
+                _excerpt = ${site.seo.description},
+                _type = 'website')}"></th:block>
+</th:block>
+<th:block th:fragment="content">
+
+    <div class="page" id="body-wrap">
+        <header class="not-top-img" id="page-header">
+            <nav th:replace="~{modules/nav :: nav(title = '文章归档')}"></nav>
+        </header>
+        <main class="layout" id="content-inner">
+            <!-- archive -->
+            <div id="archive">
+
+                <!-- 归档页样式1 默认（Hao主题自带） -->
+                <th:block th:if="${theme.config.archives.archives_filter == 'filter-default'}">
+                    <div class="article-sort-title">文章<sup>[[${siteStatsFinder.getStats().post}]]</sup></div>
+                    <div class="article-sort" th:each="archive : ${archives.items}"
+                         th:with='postRandomImg=${#strings.contains(theme.config.layout.postRandomImg,"?") ? theme.config.layout.postRandomImg+"&" : theme.config.layout.postRandomImg+"?"}'>
+                        <div class="article-sort-item year" th:text="${archive.year}"></div>
+                        <div class="article-sort" th:each="month : ${archive.months}">
+                            <!-- 月份没有样式所以不显示 -->
+                            <!-- <div class="article-sort-item" th:text="${month.month}"></div> -->
+                            <div class="article-sort-item" th:each="post : ${month.posts}">
+                                <a class="article-sort-item-img" th:href="@{${post.status.permalink}}"
+                                   th:title="${post.spec.title}">
+                                    <img th:alt="${post.spec.title}"
+                                         th:src="${#strings.isEmpty(post.spec.cover) ? postRandomImg+post.spec.title : post.spec.cover}">
+                                </a>
+                                <div class="article-sort-item-info">
+                                    <div class="article-sort-item-time"><i class="far fa-calendar-alt"></i>
+                                        <time class="post-meta-date-created"
+                                              th:attr="datetime=${#dates.format(post.spec.publishTime,'yyyy-MM-dd HH:mm:ss')}"
+                                              th:text="${#dates.format(post.spec.publishTime,'yyyy-MM-dd')}"
+                                              th:title="'创建于' + ${#dates.format(post.spec.publishTime,'yyyy-MM-dd HH:mm:ss')}">
+                                        </time>
+                                    </div>
+                                    <a class="article-sort-item-title" onclick="window.event.cancelBubble=!0"
+                                       th:href="@{${post.status.permalink}}" th:text="${post.spec.title}"
+                                       th:title="${post.spec.title}"></a>
+                                    <div class="article-sort-item-tags">
+                                        <a class="article-meta__tags"
+                                           th:each="tag : ${post.tags}" th:href="@{${tag.status.permalink}}">
+                                            <span class="tags-punctuation">[[${tag.spec.displayName}]]</span>
+                                        </a>
+                                        <span class="article-meta__link">•</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </th:block>
+
+                
+                <!-- 归档页样式2 简约 -->
+                <th:block th:if="${theme.config.archives.archives_filter == 'filter-sanarous'}">
+                    <th:block th:each="archive : ${archives.items}">
+                        <h2 th:text="${archive.year}+'年'"></h2>
+                        <article class="post">
+                            <th:block th:each="month : ${archive.months}">
+                            <th:block th:each="post : ${month.posts}">
+                                <div class="timenode-sanarous">
+                                <a class="meta" th:href="@{${post.status.permalink}}" data-pjax>
+                                    <time th:text="${#dates.format(post.spec.publishTime,'MM-dd')}" class="my-post-time"></time>
+                                    <span th:text="${post.spec.title}"></span>
+                                </a>
+                                </div>
+                            </th:block>
+                            </th:block>
+                        </article>
+                    </th:block>
+                </th:block>
+
+                <!-- 归档页样式3 精致 -->
+                <th:block th:if="${theme.config.archives.archives_filter == 'filter-butterfly'}">
+                    <div class="article-sort-title" th:with="stats = ${siteStatsFinder.getStats()}" th:text="'文章总览'+' - '+${stats.post}"></div>
+                    <div class="article-sort" th:each="archive : ${archives.items}">
+                        <div class="article-sort-item year" th:text="${archive.year}">2022</div>
+                        <th:block th:each="month : ${archive.months}">
+                            <th:block th:each="post : ${month.posts}">
+                            <div class="article-sort-item">
+                                <a class="article-sort-item-img" th:href="@{${post.status.permalink}}" th:alt="${post.spec.title}">
+                                <img data-lazy-src="http://img.netbian.com/file/2024/0323/small0012132yPPt1711123933.jpg" 
+                                alt="React基础速通计划：React Hooks" 
+                                onerror="this.onerror=null;this.src='http://img.netbian.com/file/2024/0323/small0012132yPPt1711123933.jpg'" 
+                                data-ll-status="loaded" 
+                                class="entered loaded" 
+                                th:src="${post.spec.cover}">
+                                </a>
+                                <div class="article-sort-item-info">
+                                <div class="article-sort-item-time">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <time class="post-meta-date-created" datetime="2022-06-26T14:26:47.000Z" title="发表于 2022-06-26 14:26:47">2022-06-26</time>
+                                </div>
+                                <a class="article-sort-item-title" th:href="@{${post.status.permalink}}" th:text="${post.spec.title}">文章标题</a>
+                                </div>
+                            </div>
+                            </th:block>
+                        </th:block>
+                    </div>
+                </th:block>
+
+                <!-- 归档页样式4 跃动 -->
+                <th:block th:if="${theme.config.archives.archives_filter == 'filter-green'}">
+                    <div data-v-bdf5bf98="" class="">
+                        <ul data-v-6bd7b91c="" data-v-bdf5bf98="" class="timeline-content">
+                          <li data-v-6bd7b91c="" class="desc" data-v-bdf5bf98="" style="transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out; transform: translateY(0px); opacity: 1;">
+                            自2020年05月20日至今,本站共收录文章 <span data-v-6bd7b91c="">162</span> 篇
+                          </li> 
+                          <th:block th:each="archive : ${archives.items}">
+                            <li data-v-6bd7b91c="" data-v-bdf5bf98="" style="transition: transform 0.25s ease-in-out 0.08s, opacity 0.25s ease-in-out 0.08s; transform: translateY(0px); opacity: 1;">
+                              <h3 data-v-6bd7b91c="" class="year" th:text="${archive.year}+'年'">2021</h3>
+                              <ul data-v-6bd7b91c="" class="year-wrapper">
+                                <th:block th:each="month : ${archive.months}">
+                                  <th:block th:each="post : ${month.posts}">
+                                    <li data-v-6bd7b91c="">
+                                      <a data-v-6bd7b91c="" th:href="@{${post.status.permalink}}">
+                                        <span data-v-6bd7b91c="" class="date" th:text="${#dates.format(post.spec.publishTime,'MM-dd')}">11-4</span> 
+                                        <span data-v-6bd7b91c="" class="title" th:text="${post.spec.title}">JVM调优篇之基本概述</span>
+                                      </a>
+                                    </li>
+                                  </th:block>
+                                </th:block>
+                              </ul>
+                            </li>
+                          </th:block>
+                        </ul>
+                    </div>
+                </th:block>
+                
+                <!-- 分页 -->
+                <div th:replace="~{modules/widgets/page :: page('/archives',${archives},false,'')}"></div>
+            </div>
+            <!-- sidebar -->
+            <div th:replace="~{modules/aside :: aside(${theme.config.sidebar.widgetss.indexWidget})}"></div>
+        </main>
+        <!-- 底部 -->
+        <footer th:replace="~{modules/footer}"/>
+    </div>
+
+</th:block>
+
+</html>

@@ -1,0 +1,290 @@
+.photo-list-item[data-v-af2fdcc4] {
+    width: 210px;
+    max-width: 210px;
+    min-height: 100px;
+    padding: 4px;
+    border-radius: 6px;
+    background: #FFFFFF;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 14px;
+    break-inside: avoid
+}
+
+.photo-list-item:hover .photo-list-item-content[data-v-af2fdcc4]:before {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.5))
+}
+
+.photo-list-item .photo-list-item-content[data-v-af2fdcc4] {
+    width: 100%;
+    height: 100%;
+    background-color: #00bfff73;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    overflow: hidden
+}
+
+/* 点击图片弹窗放大页面样式 */
+/* .photo-see[data-v-b29fc069] {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 99999;
+    min-width: 1400px;
+    min-height: 600px;
+    background: rgba(0,0,0,.6);
+    top: 0;
+    left: 0
+}
+
+.photo-see .photo-see-close[data-v-b29fc069] {
+    color: #989898;
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    font-size: 32px;
+    cursor: pointer
+}
+
+.photo-see .photo-see-close[data-v-b29fc069]:hover {
+    color: #fff
+}
+
+.photo-see .photo-see-left[data-v-b29fc069] {
+    color: #989898;
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    font-size: 44px;
+    cursor: pointer;
+    transform: translateY(-50%)
+}
+
+.photo-see .photo-see-left[data-v-b29fc069]:hover {
+    color: #fff
+}
+
+.photo-see .photo-see-right[data-v-b29fc069] {
+    color: #989898;
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    font-size: 44px;
+    cursor: pointer;
+    transform: translateY(-50%)
+}
+
+.photo-see .photo-see-right[data-v-b29fc069]:hover {
+    color: #fff
+}
+
+.photo-see .photo-see-content[data-v-b29fc069] {
+    background: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 6px;
+    padding: 12px
+} */
+
+.photo-list[data-v-2a9c199b] {
+    width: 1300px;
+    margin: 0 auto
+}
+
+.photo-list .photo-list-content-box[data-v-2a9c199b] {
+    margin-right: 12px
+}
+
+.photo-list .photo-list-content-box[data-v-2a9c199b]:nth-child(6) {
+    margin-right: 0
+}
+
+.photo-list .photo-list-content-item[data-v-2a9c199b] {
+    margin-bottom: 12px
+}
+
+.photo-list .photo-list-loading[data-v-2a9c199b] {
+    width: 100%;
+    min-height: 500px;
+    height: calc(100vh - 350px);
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.photo-list .photo-list-content[data-v-2a9c199b] {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start
+}
+
+.photo-list .photo-list-pagination[data-v-2a9c199b] {
+    padding: 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end
+}
+
+.photo-list .photo-list-pagination .photo-list-pagination-box[data-v-2a9c199b] {
+    transform: scale(1.1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end
+}
+
+.photo-collection-list-item[data-v-f4ba27d9] {
+    width: 230px;
+    height: 400px;
+    position: relative;
+    border-radius: 8px;
+    border: 3px solid #FFFFFF;
+    overflow: hidden;
+    cursor: pointer
+}
+
+.photo-collection-list-item .photo-collection-list-item-img[data-v-f4ba27d9] {
+    width: 230px;
+    height: 230px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    border-bottom: 3px solid #FFFFFF
+}
+
+.photo-collection-list-item .photo-collection-list-item-img img[data-v-f4ba27d9] {
+    width: 230px;
+    height: 230px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+
+.photo-collection-list-item .photo-collection-list-item-num[data-v-f4ba27d9] {
+    top: 229px;
+    right: 16px;
+    position: absolute;
+    background: #FFFFFF;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    color: #000;
+    font-size: 12px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px
+}
+
+.photo-collection-list-item .photo-collection-list-item-text1[data-v-f4ba27d9] {
+    top: 264px;
+    left: 12px;
+    position: absolute;
+    font-size: 16px;
+    width: calc(100% - 24px);
+    line-height: 1.2
+}
+
+.photo-collection-list-item .photo-collection-list-item-text2[data-v-f4ba27d9] {
+    top: 290px;
+    left: 12px;
+    position: absolute;
+    font-size: 16px;
+    width: calc(100% - 24px);
+    line-height: 1.2
+}
+
+.photo-collection-list-item .photo-collection-list-item-text3[data-v-f4ba27d9] {
+    top: 316px;
+    left: 12px;
+    position: absolute;
+    font-size: 16px;
+    width: calc(100% - 24px);
+    line-height: 1.35
+}
+
+.photo-collection[data-v-ef45a80f] {
+    width: 1300px;
+    margin: 0 auto;
+    display: grid
+}
+
+.photo-collection .photo-collection-loading[data-v-ef45a80f] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 100%
+}
+
+.photo-collection .photo-collection-container[data-v-ef45a80f] {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 36px
+}
+
+.photo-collection .photo-collection-pagination[data-v-ef45a80f] {
+    padding: 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end
+}
+
+.photo-collection .photo-collection-pagination .photo-collection-list-pagination-box[data-v-ef45a80f] {
+    transform: scale(1.1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end
+}
+
+.photo[data-v-0bb96d55] {
+    margin: 100px auto;
+    width: 100%;
+    max-width: 1400px;
+    min-width: 1400px;
+    color: #fff;
+    padding: 24px 0
+}
+
+.photo .photo-nav[data-v-0bb96d55] {
+    max-width: 1300px;
+    min-width: 1300px;
+    margin: 0 auto;
+    padding: 0 6px 48px
+}
+
+.photo .photo-nav .photo-nav-ul[data-v-0bb96d55] {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+.photo .photo-nav .photo-nav-ul .photo-nav-li[data-v-0bb96d55] {
+    color: #b4b4b4;
+    font-size: 36px;
+    padding-right: 32px;
+    cursor: pointer
+}
+
+.photo .photo-nav .photo-nav-ul .photo-nav-li[data-v-0bb96d55]:hover,.photo .photo-nav .photo-nav-ul .photo-nav-li-select[data-v-0bb96d55] {
+    color: #fff
+}

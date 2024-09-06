@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{modules/layouts/layout :: layout(path = 'tags',content = ~{::content},htmlType = 'tag',title = ${'标签' + ' | ' + site.title}, head = ~{::head})}">
+
+<th:block th:fragment="head">
+    <th:block th:replace="~{modules/common/open-graph :: open-graph(_title = '标签',
+                _permalink = '/tags',
+                _cover = ${theme.config.other.opengraph.image},
+                _excerpt = ${site.seo.description},
+                _type = 'website')}"></th:block>
+</th:block>
+<th:block th:fragment="content">
+
+    <div class="page" id="body-wrap">
+        <header class="not-top-img" id="page-header">
+            <nav th:replace="~{modules/nav :: nav(title = '标签')}"></nav>
+        </header>
+        <main class="layout hide-aside" id="content-inner">
+
+          <!-- 默认风格 -->
+          <th:block th:if="${theme.config.tagAndCategory.tags_filter == 'filter-default'}">
+            <div id="page"><h1 class="page-title" style="display: inline;">标签</h1>
+              <div class="tag-cloud-title is-center">标签 - <span class="tag-cloud-amount">0</span></div>
+              <div class="tag-cloud-list is-center">
+                  <a th:each="tagItem : ${tagFinder.listAll()}"
+                     th:href="@{${tagItem.status.permalink}}"
+                     th:id="${tagItem.spec.displayName}" th:style="'font-size: 1em; color:' + ${tagItem.spec.color} ">
+                      <span class="tags-punctuation">[[${tagItem.spec.displayName}]]</span>
+
+                      <span class="tagsPageCount">[[${tagItem.status.visiblePostCount}]]</span>
+                  </a>
+
+              </div>
+          </div>
+          </th:block>
+            <!-- <div id="page"><h1 class="page-title" style="display: inline;">标签</h1>
+                <div class="tag-cloud-title is-center">标签 - <span class="tag-cloud-amount">0</span></div>
+                <div class="tag-cloud-list is-center">
+                    <a th:each="tagItem : ${tagFinder.listAll()}"
+                       th:href="@{${tagItem.status.permalink}}"
+                       th:id="${tagItem.spec.displayName}" th:style="'font-size: 1em; color:' + ${tagItem.spec.color} ">
+                        <span class="tags-punctuation">[[${tagItem.spec.displayName}]]</span>
+
+                        <span class="tagsPageCount">[[${tagItem.status.visiblePostCount}]]</span>
+                    </a>
+
+                </div>
+            </div> -->
+
+            <!-- sakura风格 -->
+            <th:block th:if="${theme.config.tagAndCategory.tags_filter == 'filter-sakura'}">
+                <div class="tags-container container">
+                
+                    <th:block th:if="${theme.config.tagAndCategory.tag_cloud}">
+                      <div class="tag-wordcloud-container">
+                        <script type="text/javascript" th:inline="javascript">
+                            const tags = /*[[${tagFinder.listAll()}]]*/
+                
+                            const wordClouds = tags.map(tag => {
+                                return {
+                                    text: tag.spec.displayName,
+                                    size: tag.postCount,
+                                    link: tag.status.permalink,
+                                    color: tag.spec.color
+                                }
+                            })
+                        </script>
+                        
+                        <div id="tag-wordcloud" class="wordcloud"></div>
+                      </div>
+                    </th:block>
+                    <div class="card-container tags-content">
+                      <div id="tags" class="chip-container">
+                        <div class="card">
+                          <div class="card-content">
+                            <div
+                              th:unless="${not #strings.isEmpty(theme.config.patternimg.tag_patternimg)} or (${theme.config.random_image.rimage_cover_sheet_open} and ${not #strings.isEmpty(theme.config.random_image.rimage_url)})"
+                              class="tag-title"
+                            >
+                              <span class="iconify iconify--xxlarge" data-icon="fa:tags"></span>
+                              <span data-i18n="page.tags.title">文章标签</span>
+                            </div>
+                            <div class="tag-chips">
+                              <a
+                                data-pjax
+                                th:each="tag : ${tags}"
+                                th:href="@{${tag.status.permalink}}"
+                                th:title="|${tag.spec.displayName}: ${tag.postCount}|"
+                                aria-label="get the next tag"
+                              >
+                                <span class="chip chip-default" th:style="|background-color: ${tag.spec.color}|" th:attr="data-tagname=${tag.spec.displayName}">
+                                  <th:block th:text="${tag.spec.displayName}"></th:block>
+                                  <span class="tag-length" th:text="${tag.postCount}"> </span>
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </th:block>
+            
+        </main>
+
+        
+        <!-- 底部 -->
+        <footer th:replace="~{modules/footer}"/>
+    </div>
+
+</th:block>
+
+</html>
