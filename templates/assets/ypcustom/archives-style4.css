@@ -1,0 +1,157 @@
+/* 新增归档页样式四 filter-green start */
+:root {
+    --text-color-sub: #7F7F7F;
+}
+#archive .timeline-content[data-v-6bd7b91c] {
+    box-sizing: border-box;
+    position: relative;
+    list-style: none;
+}
+#archive .timeline-content[data-v-6bd7b91c]::after {
+    content: " ";
+    position: absolute;
+    top: 14px;
+    left: 0;
+    z-index: 1;
+    margin-left: -20px;
+    width: 4px;
+    height: 100%;
+    background: #bdbdbd;
+}
+#archive .timeline-content .desc[data-v-6bd7b91c], #archive .timeline-content .year[data-v-6bd7b91c] {
+    position: relative;
+    color: var(--text-color);
+    font-size: 16px;
+}
+#archive .timeline-content .desc[data-v-6bd7b91c]:before, #archive .timeline-content .year[data-v-6bd7b91c]:before {
+    content: " ";
+    position: absolute;
+    z-index: 2;
+    left: -18px;
+    top: 50%;
+    margin-left: -4px;
+    margin-top: -4px;
+    width: 8px;
+    height: 8px;
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+}
+#archive .desc:before, #archive .year:before {
+    background: cadetblue !important;
+}
+.timeline-content .desc span {
+    font-size: 40px !important;
+    color: green;
+    font-weight: bolder;
+}
+#archive .timeline-content .year[data-v-6bd7b91c] {
+    margin: 80px 0 0px;
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 26px;
+}
+#archive .timeline-content .desc[data-v-6bd7b91c], #archive .timeline-content .year[data-v-6bd7b91c] {
+    position: relative;
+    color: var(--text-color);
+    font-size: 16px;
+}
+#archive .year {
+    margin: 80px 0px 20px !important;
+    font-size: 27px !important;
+}
+#archive .timeline-content .year-wrapper[data-v-6bd7b91c] {
+    padding-left: 0 !important;
+}
+
+#archive .timeline-content .year-wrapper li[data-v-6bd7b91c] {
+    display: flex;
+    padding: 30px 0 10px;
+    list-style: none;
+    border-bottom: 1px dashed var(--border-color);
+    position: relative;
+}
+#archive .year-wrapper li {
+    padding: 10px 20px 10px !important;
+    border-bottom: 2px solid #999da06b !important;
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    border-radius: 5rem;
+    margin: 5px 0px;
+    transition: all .5s;
+    font-weight: bolder;
+    margin-top: 1.5rem;
+}
+#archive .timeline-content .year-wrapper li .date[data-v-6bd7b91c] {
+    width: 40px;
+    line-height: 30px;
+    color: var(--text-color-sub);
+    font-size: 12px;
+}
+#archive .year-wrapper li .date {
+    width: 43px !important;
+    font-size: 13px !important;
+}
+#archive .timeline-content .year-wrapper li .date[data-v-6bd7b91c]::before {
+    content: " ";
+    position: absolute;
+    left: -18px;
+    top: 41px;
+    width: 6px;
+    height: 6px;
+    margin-left: -4px;
+    background: var(--background-color);
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    z-index: 2;
+}
+#archive .year-wrapper li .date:before {
+    top: 22px !important;
+    border: 1px solid !important;
+}
+#archive .timeline-content .year-wrapper li .title[data-v-6bd7b91c] {
+    line-height: 30px;
+    color:var(--text-color-sub);
+    font-size: 16px;
+    cursor: pointer;
+}
+#archive .year-wrapper li:hover {
+    transform: translate(50px, 0);
+    transition: all .5s;
+}
+#archive .timeline-content li>ul, #archive .timeline-content li>ol {
+    margin-bottom: 0;
+    margin-left: 0em;
+}
+#archive ul,#archive ol {
+    margin: 0 0 1.5em 0;
+}
+#archive[data-v-6bd7b91c] {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 4.6rem 2.5rem 0;
+}
+.timeline-content .desc{
+	font-size: 30px !important;
+}
+#archive .timeline-content .year-wrapper li .title[data-v-d991a5a8]{
+	color: #fda085 !important;
+}
+#archive:after {
+    background: skyblue !important;
+}
+#archive .desc:before, #archive .year:before {
+  background: cadetblue !important;
+}
+/**
+* 选中变色
+*/
+#archive .timeline-content .year-wrapper li:hover .title[data-v-6bd7b91c] {
+    color: #f37d7c;
+}
+#archive .timeline-content .year-wrapper li:hover .date[data-v-6bd7b91c] {
+    color: #f37d7c;
+}
+#archive .timeline-content .year-wrapper li:hover .date[data-v-6bd7b91c]::before {
+    background: #f37d7c;
+}
+/* 新增归档页样式四 end */

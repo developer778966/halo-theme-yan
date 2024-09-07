@@ -1,0 +1,143 @@
+.categories-container .card-container {
+    margin: 36px auto
+}
+
+.categories-container .card-container.category-show {
+    animation: card-show 1s ease-in-out
+}
+
+.categories-container .card-container .categories-title {
+    margin-bottom: 10px;
+    color: #34495e;
+    color: #34495e;
+    font-size: 1.75rem;
+    font-weight: 400
+}
+
+.categories-container .card-container .categories-chips {
+    margin: 1rem auto .5rem;
+    max-width: 850px;
+    text-align: center
+}
+
+.categories-container .card-container .categories-chips .categories-length {
+    color: #9b8b2a;
+    margin-top: 0;
+    margin-left: 5px;
+    margin-right: -2px;
+    font-size: .9rem
+}
+
+.categories-container .card-container .category-echarts {
+    width: 100%;
+    height: 360px
+}
+
+@keyframes card-show {
+    0% {
+        opacity: 0;
+        transform: translateY(50px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+.category-header .page-header .pattern-title {
+    display: flex;
+    align-items: center
+}
+
+.category-header .page-header .pattern-title h1 {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 400;
+    width: auto
+}
+
+.category-header .page-header .pattern-title h1:before {
+    content: ""
+}
+
+.category-header .page-header .pattern-title h1:after {
+    content: "";
+    padding-right: 15px;
+    border-right: 1px dashed #ddd;
+    font-size: 30px;
+    vertical-align: middle
+}
+
+@media (max-width: 768px) {
+    .category-header .page-header .pattern-title h1:after {
+        border-right:none
+    }
+}
+
+.category-header .page-header .pattern-title .cat-des {
+    display: block;
+    text-align: center;
+    color: #999;
+    margin-left: 10px
+}
+.categories-container a {
+    background-color: transparent;
+    text-decoration: none;
+    color: #e67474;
+    outline: none;
+    cursor: pointer;
+    transition: color .2s ease-out, border .2s ease-out, opacity .2s ease-out;
+}
+.card-container {
+    position: relative;
+    text-align: center;
+    border: 0;
+    border-radius: 10px;
+    color: #000000de;
+    background: #efefef;
+    background-size: cover;
+    box-shadow: 0 -15px 35px #32325d1a,0 5px 15px #00000012;
+    box-shadow: var(--card-container-box-shadow)
+}
+
+.card-container .chip-container .card-content {
+    padding: 1.5rem;
+    border-radius: 0 0 2px 2px
+}
+
+.card-container .chip-container .card-content .chip {
+    margin: .625rem;
+    padding: 1.25rem;
+    display: inline-flex;
+    line-height: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 3px 5px #0000001f;
+    z-index: 0
+}
+
+.card-container .chip-container .card-content .chip:hover {
+    color: #fff;
+    background: linear-gradient(to right,#4cbf30 0%,#0f9d58 100%)
+}
+
+.card-container .chip-container .card-content .chip.chip-default {
+    color: #34495e
+}
+
+[data-theme="dark"] .card-container {
+    background: #393232;
+}
+
+[data-theme="dark"] .categories-container a {
+    color: var(--heo-fontcolor);
+}
+[data-theme="dark"] .categories-container .categories-title span {
+    color: var(--heo-fontcolor);
+}
+[data-theme="dark"] .categories-container .categories-title svg {
+    color: var(--heo-fontcolor);
+}
